@@ -1,0 +1,20 @@
+<div class="poll-container">
+    <div class="poll-question">
+      <h3>{{ question }}</h3>
+    </div>
+    
+    <div class="poll-options">
+      <div class="poll-option" *ngFor="let option of options; let i = index" (click)="vote(i)">
+        <span>{{ option.text }}</span>
+        <div class="poll-bar-container">
+          <div class="poll-bar" [ngStyle]="{'width': option.percentage + '%'}"></div>
+        </div>
+        <span class="poll-percentage">{{ option.percentage }}%</span>
+      </div>
+    </div>
+  
+    <div class="thank-you-message" *ngIf="thankYouMessageVisible">
+      <i class="fas fa-check-circle"></i> Thanks for voting!
+    </div>
+  </div>
+  

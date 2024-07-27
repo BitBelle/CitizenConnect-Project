@@ -1,0 +1,40 @@
+<div class="auth-container">
+  <h2>User Login</h2>
+  <form (ngSubmit)="onSubmit()" [formGroup]="loginForm">
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" id="email" formControlName="userEmail">
+      <div *ngIf="loginForm.get('userEmail')?.touched && loginForm.get('userEmail')?.invalid">
+        <small *ngIf="loginForm.get('userEmail')?.errors?.['required']">Email is required</small>
+        <small *ngIf="loginForm.get('userEmail')?.errors?.['email']">Email is invalid</small>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="password" id="password" formControlName="upassword">
+      <div *ngIf="loginForm.get('upassword')?.touched && loginForm.get('upassword')?.invalid">
+        <small *ngIf="loginForm.get('upassword')?.errors?.['required']">Password is required</small>
+      </div>
+    </div>
+    <button type="submit" [disabled]="loginForm.invalid">Login</button>
+    <div class="forgot-password-link" (click)="toggleForgotPassword()">Forgot Password?</div>
+  </form>
+
+  <div *ngIf="showForgotPassword" class="forgot-password-container">
+    <h3>Reset Password</h3>
+    <form (ngSubmit)="onForgotPasswordSubmit()" [formGroup]="forgotPasswordForm">
+      <div class="form-group">
+        <label for="resetEmail">Email</label>
+        <input type="email" id="resetEmail" formControlName="resetEmail">
+        <div *ngIf="forgotPasswordForm.get('resetEmail')?.touched && forgotPasswordForm.get('resetEmail')?.invalid">
+          <small *ngIf="forgotPasswordForm.get('resetEmail')?.errors?.['required']">Email is required</small>
+          <small *ngIf="forgotPasswordForm.get('resetEmail')?.errors?.['email']">Email is invalid</small>
+        </div>
+      </div>
+      <button type="submit" [disabled]="forgotPasswordForm.invalid">Send Reset Link</button>
+    </form>
+  </div>
+  <div *ngIf="errorMessage" class="error-message">
+    {{ errorMessage }}
+  </div>
+</div>

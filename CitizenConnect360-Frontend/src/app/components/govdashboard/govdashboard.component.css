@@ -1,0 +1,110 @@
+/* Overall styling */
+.dashboard-container {
+    padding: 20px;
+    font-family: 'Arial', sans-serif;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background-color: #f5f7f6;
+
+    /* color: #0b5004; */
+}
+
+/* Header styling */
+.header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Statistics cards */
+.stats-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Centering items horizontally */
+    gap: 20px; /*spacing between cards */
+    margin-bottom: 20px;
+}
+
+.card {
+    background-color: #e7eceb;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 200px;
+    flex: 1 1 300px; /* for card wraping properly and expand as needed */
+}
+
+.card h3 {
+    margin: 0;
+    font-size: 18px;
+}
+
+.card p {
+    font-size: 24px;
+    margin: 10px 0 0 0;
+}
+
+.card i {
+    color: #083403;
+    margin-right: 10px;
+}
+
+/* Charts section */
+.charts {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.chart-container {
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 45%;
+    flex: 1 1 45%; /*wraping properly..maintain width */
+}
+
+/* Latest activity section */
+.latest-activity {
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.activity-list {
+    margin-top: 20px;
+}
+
+.activity-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.activity-item p {
+    margin: 0;
+}
+
+.activity-item span {
+    color: #888;
+}
+
+@media (max-width: 768px) {
+    /* Adjustments for smaller screens */
+    .stats-cards, .charts {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .card, .chart-container {
+        width: 100%;
+        max-width: 400px; 
+    }
+}

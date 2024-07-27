@@ -1,0 +1,120 @@
+    <div class="success-message" *ngIf="signupErrorMessage$ |async">
+        <p>{{signupSuccessMessage$ |async}}</p>
+    </div>
+
+    <div class="failure-message" *ngIf="signupErrorMessage$  |async">
+        <p>{{signupErrorMessage$ | async}}</p>
+    </div>
+
+
+
+
+<div class="container">
+  <div>
+    <h2>Sign Up</h2>
+
+    <!-- <div class="form-group">
+      <label for="userImage">Upload Profile Picture</label>
+      <input type="file" id="userImage" (change)="onFileSelected($event)">
+      <div *ngIf="imageError">
+        <small>{{ imageError }}</small>
+      </div>
+      <div *ngIf="previewUrl">
+        <img [src]="previewUrl" alt="Image Preview" style="max-width: 150px; margin-top: 10px;">
+      </div>
+    </div> -->
+
+
+    <form (ngSubmit)="onSubmit('signup')" [formGroup]="signUpForm">
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" id="username" formControlName="userName">
+        <div *ngIf="signUpForm.get('userName')?.touched && signUpForm.get('userName')?.invalid">
+          <small *ngIf="signUpForm.get('userName')?.errors?.['required']">Name is required</small>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" formControlName="userEmail">
+        <div *ngIf="signUpForm.get('userEmail')?.touched && signUpForm.get('userEmail')?.invalid">
+          <small *ngIf="signUpForm.get('userEmail')?.errors?.['required']">Email is required</small>
+          <small *ngIf="signUpForm.get('userEmail')?.errors?.['userEmail']">Email is invalid</small>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="role">Role</label>
+        <select id="role" formControlName="roleName">
+          <option value="" disabled>Select role</option>
+          <option value="Citizen">Citizen</option>
+          <option value="Gov-Official">Government Official</option>
+        </select>
+        <div *ngIf="signUpForm.get('roleName')?.touched && signUpForm.get('roleName')?.invalid">
+          <small *ngIf="signUpForm.get('roleName')?.errors?.['required']">Role is required</small>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" formControlName="upassword">
+        <div *ngIf="signUpForm.get('upassword')?.touched && signUpForm.get('upassword')?.invalid">
+          <small *ngIf="signUpForm.get('upassword')?.errors?.['required']">Password is required</small>
+          <small *ngIf="signUpForm.get('upassword')?.errors?.['minlength']">Password must be at least 8
+            characters</small>
+          <small *ngIf="signUpForm.get('upassword')?.errors?.['pattern']">Password must contain: 1
+            uppercase letter, 1 lowercase letter, 1 number</small>
+        </div>
+      </div>
+
+      <div class="form-group form-check">
+        <input type="checkbox" id="terms" formControlName="termsAccepted" class="form-check-input">
+        <label for="terms" class="form-check-label">I accept the <a href="#" (click)="openTermsModal($event)">Terms and
+            Conditions</a></label>
+        <div *ngIf="signUpForm.get('termsAccepted')?.touched && signUpForm.get('termsAccepted')?.invalid">
+          <small *ngIf="signUpForm.get('termsAccepted')?.errors?.['required']">You must accept the terms and
+            conditions</small>
+        </div>
+      </div>
+
+
+      <button type="submit" [disabled]="signUpForm.invalid">Sign Up</button>
+
+      <div>
+        <p>Already have an account? <a [routerLink]="['/login']" routerLinkActive="active">Login</a></p>
+      </div>
+    </form>
+  </div>
+
+  <!-- Modal for Terms and Conditions -->
+  <div class="modal" tabindex="-1" [class.show]="isTermsModalVisible" (click)="closeTermsModal()">
+    <div class="modal-dialog" (click)="$event.stopPropagation()">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">T&Cs</h5>
+          <button type="button" class="close" (click)="closeTermsModal()">&times;</button>
+        </div>
+        <div class="modal-body">
+          <h3> Terms and Conditions for CitizenConnect360 </h3>
+          <p>1. Acceptance of Terms <br>
+            By signing up for CitizenConnect360, you agree to these terms and conditions. <br> <br>
+
+            2. User Responsibilities <br>
+            Provide Accurate Information: Ensure all information provided is truthful and accurate.
+            Prohibited Activities: Do not engage in illegal activities, harassment, or spreading false information. <br>
+            <br>
+
+            3. Privacy Policy <br>
+            By signing up, you agree to the collection and use of your data as described in our Privacy Policy. <br>
+            <br>
+
+            4. Account Termination <br>
+            We may terminate accounts that violate these terms without notice.
+          </p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" (click)="closeTermsModal()">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

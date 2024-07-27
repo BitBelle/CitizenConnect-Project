@@ -1,0 +1,19 @@
+<!-- admin-dashboard.component.html -->
+<nav>
+    <div class="logo-nav">
+      <img src="/assets/logo.PNG" alt="logo" class="logo">
+      <ul class="nav-part">
+        <li><a routerLink="admin-dash" routerLinkActive="active">Dashboard</a></li>
+        <li><a routerLink="user-management" routerLinkActive="active">User Management</a></li>
+      </ul>
+    </div>
+    <ul class="auth-part">
+      <li class="nav-item" *ngIf="!isLoggedIn">
+        <a [routerLink]="['/home']" routerLinkActive="active">Logout</a>
+      </li>
+    </ul>
+  </nav>
+  
+  <!-- Router outlet to display the views -->
+  <router-outlet></router-outlet>
+  

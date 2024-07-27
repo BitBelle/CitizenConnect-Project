@@ -1,0 +1,97 @@
+.auth-container {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 2rem;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: #333;
+  }
+  
+  .form-group {
+    margin-bottom: 1.5rem;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #555;
+  }
+  
+  input[type="email"],
+  input[type="password"] {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+  }
+  
+  input[type="email"]:focus,
+  input[type="password"]:focus {
+    outline: none;
+    border-color: #02502a;;
+  }
+  
+  button[type="submit"] {
+    width: 100%;
+    padding: 0.75rem;
+    background-color:  rgb(113, 156, 128);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+  
+  button[type="submit"]:disabled {
+    background-color:  rgb(168, 177, 171);
+    cursor: not-allowed;
+  }
+  
+  .forgot-password-link {
+    margin-top: 1rem;
+    text-align: center;
+    color: #185596;
+    cursor: pointer;
+  }
+  
+  .forgot-password-container {
+    margin-top: 2rem;
+    padding: 1rem;
+    background-color: #e9ecef;
+    border-radius: 5px;
+  }
+  
+  .error-message {
+    margin-top: 1rem;
+    color: red;
+    text-align: center;
+  }
+
+  .small {
+    color: red;
+  }
+
+
+  /* Responsive Adjustments */
+@media only screen and (max-width: 500px) {
+  .auth-container {
+    padding: 1.5rem;
+  }
+  
+  .form-group {
+    margin-bottom: 1rem;
+  }
+  
+  button[type="submit"] {
+    padding: 0.5rem;
+  }
+}
+  

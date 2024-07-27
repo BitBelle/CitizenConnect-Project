@@ -1,0 +1,34 @@
+<header class="header">
+  <nav>
+    <div class="logo-nav">
+      <img src="/assets/logo.PNG" alt="logo" class="logo">
+      <ul class="nav-part">
+        <li><a routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"></a></li>
+        <li><a routerLink="/home">Home</a></li>
+        <li><a routerLink="/educate" routerLinkActive="active" *ngIf="auth.isLoggedIn() && roleName === 'Citizen'" class="nav-link">Educate</a></li>
+        <li><a routerLink="/views" routerLinkActive="active" *ngIf="auth.isLoggedIn() && roleName === 'Citizen'" class="nav-link">Views</a></li>
+        <li><a routerLink="/incidents" routerLinkActive="active" *ngIf="auth.isLoggedIn() && roleName === 'Citizen'" class="nav-link">Report Incidents</a></li>
+        <li><a routerLink="/polls" routerLinkActive="active" *ngIf="auth.isLoggedIn() && roleName === 'Citizen'" class="nav-link">Polls</a></li>
+        <li><a routerLink="/gov-dash" *ngIf="auth.isLoggedIn() && roleName === 'Gov-Official'" class="nav-link">Gov-Dashboard</a></li>
+        <li><a routerLink="/views-summary" routerLinkActive="active" *ngIf="auth.isLoggedIn() && roleName === 'Gov-Official'" class="nav-link">Citizen Views</a></li>
+        <li><a routerLink="/reported-incidents" routerLinkActive="active" *ngIf="auth.isLoggedIn() && roleName === 'Gov-Official'" class="nav-link">Reported Incidents</a></li>
+        <li><a routerLink="/create-poll" *ngIf="auth.isLoggedIn() && roleName === 'Gov-Official'" class="nav-link">Create Polls</a></li>
+        <li><a routerLink="/admin-dashboard" *ngIf="auth.isLoggedIn() && roleName === 'Admin'" class="nav-link">Admin Dashboard</a></li>
+        <li><a routerLink="/user-management" *ngIf="auth.isLoggedIn() && roleName === 'Admin'" class="nav-link">User Management</a></li>
+      </ul>
+    </div>
+    <ul class="auth-part">
+      <li class="nav-item" *ngIf="!isLoggedIn">
+        <a [routerLink]="['/signup']" routerLinkActive="active">Signup</a>
+      </li>
+      <li class="nav-item" *ngIf="!isLoggedIn">
+        <a [routerLink]="['/login']" routerLinkActive="active">Login</a>
+      </li>
+      <li class="nav-item" *ngIf="isLoggedIn">
+        <a class="nav-link" (click)="logout()">Logout</a>
+      </li>
+
+    </ul>
+  </nav>
+</header>
+<router-outlet></router-outlet>

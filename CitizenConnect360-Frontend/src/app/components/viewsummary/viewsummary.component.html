@@ -1,0 +1,34 @@
+<div class="user-views-container">
+  <div class="header">
+    <h2>User Views</h2>
+  </div>
+
+  <div class="views-list">
+    <div *ngFor="let view of views" class="view-item">
+      <div class="user-info">
+        <div class="profile-img">
+          <img *ngIf="view.userImg; else noImg" [src]="view.userImg" alt="">
+          <ng-template #noImg>
+            <div class="profile-placeholder"></div>
+          </ng-template>
+        </div>
+        <p><strong>{{ view.userName }}:</strong></p>
+      </div>
+      <p>{{ view.viewContent }}</p>
+      <span class="timestamp">{{ view.createdAt | date:'short' }}</span>
+    </div>
+  </div>
+
+  <div class="chatbot-container">
+    <h3>Chatbot Summary</h3>
+    <div class="chat-window">
+      <div class="chat-messages" #summaryElement>
+        <!-- Summary content will be here -->
+      </div>
+      <div class="chat-input">
+        <input type="text" placeholder="Type a message..." [(ngModel)]="userMessage" />
+        <button (click)="summarizeViews()">Send</button>
+      </div>
+    </div>
+  </div>
+</div>

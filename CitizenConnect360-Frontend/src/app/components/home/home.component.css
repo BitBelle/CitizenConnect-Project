@@ -1,0 +1,120 @@
+/* Home Container */
+*{
+  margin-top: 0;
+  padding: 0;
+}
+
+.space{
+  background-color: aqua;
+  border: 1px solid black;
+}
+.home-container {
+  width: 100%;
+  height: 100vh;
+  background-image: url("/assets/CC360.jpg");
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  opacity: 0.7;
+}
+
+.content-block-container {
+  display: flex;
+  gap: 20px;
+  margin: 20px;
+  justify-content: center;
+}
+
+.content-block {
+  background-color: #f0f0f0cd;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(246, 239, 239, 0.500);
+  flex: 1;
+  max-width: 300px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.content-block:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.content-block h2 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  font-weight: 500;
+}
+
+.content-block p {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 15px;
+}
+
+.content-block a {
+  display: inline-block;
+  background-color: #007bff;
+  color: #fff;
+  text-decoration: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.content-block a:hover {
+  background-color: #0056b3;
+}
+
+.icon {
+  font-size: 2rem;
+  margin-right: 10px;
+}
+
+/* Welcome Container */
+.welcome-container {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.welcome-line p {
+  margin-bottom: 20px;
+  font-size: 17px;
+  line-height: 1.5;
+  font-weight: bold;
+  color: white;
+
+}
+
+#btn {
+  background-color: green;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#btn:hover {
+  background-color: darkgreen;
+}
+
+
+/* Media Queries for Responsive Design */
+
+@media (max-width: 1024px) {
+  .content-block {
+    max-width: calc(50% - 20px);
+  }
+}
+
+@media (max-width: 768px) {
+  .content-block {
+    max-width: calc(100% - 20px);
+  }
+}

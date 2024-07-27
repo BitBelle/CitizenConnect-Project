@@ -1,0 +1,165 @@
+.main-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.sub-container1 {
+    flex: 1;
+    margin-right: 20px;
+}
+
+.sub-container2 {
+    flex: 2;
+    margin-right: 20px;
+}
+
+.sub-container3 {
+    flex: 1;
+    padding: 20px;
+    background-color: #f5f8fa; /* Light blue-grey */
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 20px 0;
+}
+
+.reported-incidents {
+    background-color: #edf2f7; /* Light grey-blue */
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.reported-incidents h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    color: #2d3748; /* Dark blue-grey */
+}
+
+.incident {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    background-color: #ffffff; /* White background */
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.incident img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+.user-name {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333333; /* Dark grey */
+    margin: 10px 0 5px;
+}
+
+.timestamp {
+    font-size: 14px;
+    color: #718096;
+    margin-bottom: 15px;
+}
+
+.posted-incident {
+    background-color: #f7fafc; 
+    padding: 15px;
+    border-radius: 8px;
+    width: 100%;
+    text-align: left;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    width: 400px;
+}
+
+.posted-incident p {
+    font-size: 16px;
+    color: #4a5568;
+    margin: 0;
+}
+
+.share-incident {
+    background-color: #ffffff; 
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.share-incident label {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.share-incident input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #cbd5e0;
+    border-radius: 8px;
+}
+
+.share-incident button {
+    background-color: #083403; 
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.share-incident button:hover {
+    background-color: #054c30; 
+}
+
+.profile-image {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 10px;
+}
+
+.profile-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.post-content {
+    flex: 1;
+}
+
+.post-author {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.post-time {
+    color: #718096; /* Medium blue-grey */
+    margin-bottom: 10px;
+}
+
+.posted-comment {
+    margin-bottom: 10px;
+}
+
+
+/* Responsive Adjustments */
+@media only screen and (max-width: 768px) {
+    .main-container {
+      flex-direction: column;
+    }
+  
+    .sub-container1,
+    .sub-container2,
+    .sub-container3 {
+      flex: 1 1 100%;
+      margin-right: 0;
+    }
+  }

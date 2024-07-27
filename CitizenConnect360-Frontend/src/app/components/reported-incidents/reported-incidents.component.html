@@ -1,0 +1,80 @@
+<div class="main-container">
+    <div class="sub-container1">
+        <h3>Top Incidents</h3>
+        <div class="top-incidents">
+            <div class="incident-stats">
+                <p><strong>Today:</strong> 5</p>
+                <p><strong>This Week:</strong> 23</p>
+                <p><strong>This Month:</strong> 87</p>
+            </div>
+            <div class="top-categories">
+                <h4>Top Categories</h4>
+                <canvas id="categoryChart"></canvas>
+            </div>
+            <div class="incident-trends">
+                <h4>Incident Trends</h4>
+                <canvas id="trendChart"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <div class="sub-container2">
+        <div class="reported-incidents">
+            <h3>Reported Incidents</h3>
+            <div class="filter-options">
+              <label for="incident-type">Filter by type:</label>
+              <select id="incident-type" (change)="filterIncidents($event)">
+                <option value="all">All</option>
+                <option value="theft">Theft</option>
+                <option value="vandalism">Vandalism</option>
+                <option value="accident">Accident</option>
+              </select>
+            </div>
+            <div class="incident-list">
+              <div class="user-incident" *ngFor="let incident of filteredIncidents">
+                <!-- <img [src]="" alt="" class="user-avatar"> -->
+                <div class="user-avatar-placeholder" >
+                  <p class="user-initial">{{ incident.userName[0] }}</p>
+                </div>
+                <div class="incident-details">
+                  <div class="user-info">
+                    <p class="user-name">{{ incident.userName }}</p>
+                    <p class="incident-time">{{ incident.createdAt }}</p>
+                  </div>
+                  <p class="incident-description">{{ incident.incidentDesc }}</p>
+                  <!-- <img *ngIf="incident.incidentImg" [src]="incident.incidentImg" alt="Incident Image" class="incident-image"> -->
+                  <div class="interaction-buttons">
+                    <button class="like-btn">Like</button>
+                    <button class="comment-btn">Comment</button>
+                    <button class="priority-btn" (click)="markAsPriority(incident)">Mark as Priority</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+    </div>
+
+    <div class="sub-container3">
+        <!-- <div class="user-activity">
+            <h3>Recent User Activity</h3>
+            <ul>
+                <li>John Doe reported a pothole.</li>
+                <li>Jane Smith liked an incident.</li>
+                <li>Michael Brown commented on an incident.</li>
+            </ul>
+        </div> -->
+        <div class="announcements">
+            <h3>Announcements</h3>
+            <p>No new announcements.</p>
+        </div>
+        <div class="resource-links">
+            <h3>Resource Links</h3>
+            <ul>
+                <li><a href="#">Incident Reporting Guidelines</a></li>
+                <li><a href="#">Safety Tips</a></li>
+                <li><a href="#">Contact Support</a></li>
+            </ul>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,74 @@
+<div class="main-content">
+  <!-- Notifications for new government official signups -->
+  <div class="card">
+    <div class="card-header">
+      <h2>Notifications</h2>
+    </div>
+    <div class="card-body">
+      <ul>
+        <li *ngFor="let request of governmentOfficialRequests" class="notification-item">
+          <div class="notification-details">
+            <span>{{ request.user.userName }}</span>
+            <span class="notification-info"> Requests approval as a Government Official</span>
+          </div>
+          <div class="notification-actions">
+            <!-- <button class="btn btn-primary" (click)="approveUser(request)">Approve</button> -->
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- User Management -->
+<div class="card">
+  <div class="card-header">
+    <h2>User Management</h2>
+  </div>
+  <div class="card-body">
+    <ul>
+      <li *ngFor="let user of users" class="user-item">
+        {{ user.userName }} - {{ user.roleName }}
+        <button class="btn btn-danger" (click)="deleteUser(user)">Delete</button>
+        <span *ngIf="user.violatedTerms" class="badge badge-warning">Violated Terms!</span>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<!-- Deleted Users -->
+<div class="card">
+  <div class="card-header">
+    <h2>Deleted Users</h2>
+  </div>
+  <div class="card-body">
+    <ul>
+      <li *ngFor="let user of deletedUsers" class="user-item">
+        {{ user.userName }} - {{ user.roleName }}
+        <!-- <button class="btn btn-success" (click)="restoreUser(user)">Restore</button> -->
+      </li>
+    </ul>
+  </div>
+</div>
+
+  <!-- Roles and Permissions -->
+  <!-- <div class="card">
+    <div class="card-header">
+      <h2>Roles and Permissions</h2>
+    </div>
+    <div class="card-body">
+      <form (submit)="assignRole()">
+        <label for="userSelect">Select User:</label>
+        <select id="userSelect" class="form-control" [(ngModel)]="selectedUser" name="selectedUser">
+          <option *ngFor="let user of activeUsers" [value]="user.userId">{{ user.userName }}</option>
+        </select>
+
+        <label for="roleSelect">Select Role:</label>
+        <select id="roleSelect" class="form-control" [(ngModel)]="selectedRole" name="selectedRole">
+          <option *ngFor="let role of roles" [value]="role">{{ role }}</option>
+        </select>
+
+        <button type="submit" class="btn btn-primary">Assign Role</button>
+      </form>
+    </div>
+  </div> -->
+</div>

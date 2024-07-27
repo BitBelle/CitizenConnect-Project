@@ -1,0 +1,40 @@
+<div class="main-container">
+    <div class="sub-container1">
+        <div class="reported-incidents">
+            <h3>Latest Reported Incidents</h3>
+            <div class="incidents">
+                <!-- Display incidents here -->
+            </div>
+        </div>
+    </div>
+    <div class="sub-container2">
+        <div class="share-incident">
+            <label for="postInput">Share any incident around you</label>
+            <input type="text" id="postInput" placeholder="Share your thoughts" [(ngModel)]="incidentDesc">
+            
+            <label for="imageInput">Upload Image</label>
+            <input type="file" id="imageInput" (change)="onImageSelected($event)">
+            
+            <button (click)="addIncident()">Post</button>
+        </div>
+    
+        <div class="incident" *ngFor="let incident of incidents">
+            <p class="user-name">{{incident.userName}}</p>
+            <p class="timestamp">{{incident.createdAt}}</p>
+            <!-- <img [src]="incident.incidentImg" alt="Incident Image"> -->
+            <div class="posted-incident">
+                <p>{{incident.incidentDesc}}</p>
+            </div>
+        </div>
+    </div>
+    
+
+    <div class="sub-container3">
+        <div class="user-profile-summary">
+            <h3>Recent Activity:</h3>
+            <ul>
+                <!-- <li *ngFor="let activity of recentActivities">{{activity}}</li> -->
+            </ul>
+        </div>
+    </div>
+</div>

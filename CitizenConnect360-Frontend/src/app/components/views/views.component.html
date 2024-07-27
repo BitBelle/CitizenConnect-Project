@@ -1,0 +1,52 @@
+<div class="main-container">
+    <div class="sub-container1">
+        <div class="trending-views">
+            <h3>Latest Views</h3>
+            <div class="view-card" *ngFor="let view of views">
+                <div class="view-content">
+                    <p>{{ view.viewContent }}</p>
+                </div>
+                <!-- <button (click)="deleteView(view.userId)">Delete</button> -->
+            </div>
+        </div>
+    </div>
+
+    <div class="sub-container2">
+        <div class="share-post">
+            <label for="postInput">Share what's happening around you</label>
+            <input type="text" id="postInput" [(ngModel)]="viewContent" placeholder="Share your thoughts">
+            <button (click)="addView()">Post View</button>
+        </div>
+
+        <hr class="separator">
+
+        <div class="post" *ngFor="let view of views">
+            <img src="/assets/user1.jpg" alt="Profile Image">
+            <div class="post-details">
+                <p class="username">{{ view.userName }}</p>
+                <p class="timestamp">{{ view.createdAt }}</p>
+                <div class="posted-comment">
+                    <p>{{ view.viewContent }}</p>
+                </div>
+            </div>
+        </div>
+
+        <hr class="separator">
+    </div>
+
+    <div class="sub-container3">
+        <div class="user-profile-summary">
+            <h3>Recent Activity:</h3>
+            <ul>
+                <!-- <li *ngFor="let activity of activities">{{ activity }}</li> -->
+            </ul>
+        </div>
+
+        <div class="notifications">
+            <h3>Notifications</h3>
+            <ul>
+                <!-- <li *ngFor="let notification of notifications">{{ notification }}</li> -->
+            </ul>
+        </div>
+    </div>
+</div>
