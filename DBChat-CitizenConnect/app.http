@@ -1,0 +1,32 @@
+
+######################
+POST http://127.0.0.1:5000/educate-chat
+Content-Type: application/json
+
+{
+    "userId" : "b9843f89-71c0-49b1-9d71-1f580b7cc260",
+    "query" : "what are the views saying"
+}
+
+
+######################
+# get users
+GET http://127.0.0.1:5000/users
+
+
+######################
+# get  a specific user
+GET http://127.0.0.1:5000/users/4aad5877-0b05-4fbd-b8a3-e108831e909b
+
+
+
+######################
+POST http://127.0.0.1:5000/users/add-user
+Content-Type: application/json
+
+{
+    "name" : "Mark Mende",
+    "email" : "markmende32@gmail.com",
+    "password" : "Mark17?q",
+    "role" : "citizen"
+}
