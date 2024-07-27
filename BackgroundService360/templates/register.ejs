@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to CitizenConnect360</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            color: #333333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            max-width: 600px;
+            width: 100%;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        .header {
+            background-color: #28a745;
+            color: #ffffff;
+            padding: 20px;
+            text-align: center;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+        .content {
+            padding: 20px;
+        }
+        .content h2 {
+            color: #28a745;
+            font-size: 20px;
+        }
+        .content p {
+            line-height: 1.6;
+        }
+        .content a {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .footer {
+            background-color: #f4f4f4;
+            color: #777777;
+            padding: 20px;
+            text-align: center;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Welcome to CitizenConnect360!</h1>
+        </div>
+        <div class="content">
+            <h2>Hello <%= name %>,</h2>
+            <p>Welcome to CitizenConnect360! We are delighted to have you join our community where your voice matters. As a valued member, you can engage with your local government, share your views, report incidents, and participate in polls that shape your community.</p>
+            <p>With CitizenConnect360, you have the power to make a difference. Start exploring and get involved today!</p>
+            <a href="<% company_url %>" target="_blank">Get Started</a>
+        </div>
+        <div class="footer">
+            <p>&copy; 2024 CitizenConnect360. All rights reserved.</p>
+            <p>If you have any questions, feel free to <a href="mailto:support@citizenconnect360.com">contact us</a>.</p>
+        </div>
+    </div>
+</body>
+</html>
