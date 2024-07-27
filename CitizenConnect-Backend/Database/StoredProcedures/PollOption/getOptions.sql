@@ -1,0 +1,11 @@
+
+
+GO
+
+CREATE OR ALTER PROCEDURE getPollOptions
+
+AS
+BEGIN
+SELECT * FROM PollOptions
+
+END 

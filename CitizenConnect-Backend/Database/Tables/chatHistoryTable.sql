@@ -1,0 +1,15 @@
+GO
+
+CREATE TABLE Chats(
+    id VARCHAR(255) PRIMARY KEY,
+    userId VARCHAR(255) NOT NULL,
+    query VARCHAR(255) NOT NULL,
+    answerGiven VARCHAR(255) NOT NULL
+
+    FOREIGN KEY (userId) REFERENCES Users(userId)
+
+);
+
+DROP TABLE Chats
+
+SELECT * FROM Chats

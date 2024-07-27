@@ -1,0 +1,10 @@
+
+
+GO
+
+CREATE OR ALTER PROCEDURE getChats
+
+AS
+BEGIN
+SELECT * FROM Chats
+END 
