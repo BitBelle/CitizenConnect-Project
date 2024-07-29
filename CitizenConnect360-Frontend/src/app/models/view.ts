@@ -9,6 +9,7 @@ export interface Views {
 
 export interface AddView {
     userId: string
+    userName:string
     viewContent: string
 }
 

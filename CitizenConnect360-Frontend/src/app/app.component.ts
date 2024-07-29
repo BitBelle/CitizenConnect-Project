@@ -11,14 +11,13 @@ import { ReportedIncidentsComponent } from "./components/reported-incidents/repo
 import { GovPollsComponent } from "./components/gov-polls/gov-polls.component";
 import {adminnavComponent } from "./components/adminnav/adminnav.component";
 import { UserManagementComponent } from "./components/admin-user-management/user-management.component";
-import { GovNavbarComponent } from "./components/gov-navbar/gov-navbar.component";
 import { ViewsummaryComponent } from './components/viewsummary/viewsummary.component';
 // import { ViewsComponent } from "./components/views/views.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, HomeComponent, HeaderComponent, SignupComponent, LoginComponent, EducateComponent, ViewsummaryComponent, GovdashboardComponent,ReportedIncidentsComponent, GovPollsComponent, adminnavComponent, UserManagementComponent, GovNavbarComponent],
+  imports: [RouterOutlet, HomeComponent, HeaderComponent, SignupComponent, LoginComponent, EducateComponent, ViewsummaryComponent, GovdashboardComponent,ReportedIncidentsComponent, GovPollsComponent, adminnavComponent, UserManagementComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

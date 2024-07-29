@@ -6,6 +6,7 @@ import { AddView, Views } from '../../models/view';
 @Injectable({
   providedIn: 'root'
 })
+
 export class ViewService {
 
   private readonly BaseURL ="http://localhost:4000/view"

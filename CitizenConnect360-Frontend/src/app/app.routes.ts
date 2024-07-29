@@ -12,7 +12,6 @@ import { ViewsummaryComponent } from './components/viewsummary/viewsummary.compo
 import { adminnavComponent } from './components/adminnav/adminnav.component';
 import { UserManagementComponent } from './components/admin-user-management/user-management.component';
 import { GovdashboardComponent } from './components/govdashboard/govdashboard.component';
-import { GovNavbarComponent } from './components/gov-navbar/gov-navbar.component';
 import { AdminDashboardComponent } from './components/admin-dashboard/admin-dashboard.component';
 import { ReportedIncidentsComponent } from './components/reported-incidents/reported-incidents.component';
 import { GovPollsComponent } from './components/gov-polls/gov-polls.component';

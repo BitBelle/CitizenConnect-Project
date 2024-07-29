@@ -15,8 +15,9 @@ import { CommonModule } from '@angular/common';
 export class ViewsComponent implements OnInit {
   views: Views[] = [];
 
-  viewContent!:string;
   userId!:string
+  userName!:string
+  viewContent!:string;
 
   constructor(
     private fb: FormBuilder, 
@@ -43,16 +44,18 @@ export class ViewsComponent implements OnInit {
 
   addView(): void {
     console.log('UserId:', this.userId);
+    console.log('userName:', this.userName);
     console.log('View Content:', this.viewContent); 
     
 
-    if (this.viewContent.trim() === '' || this.userId === '') {
+    if (this.viewContent.trim() === '' || this.userId === '' || this.userName === '') {
       console.warn('Invalid data: either viewContent or userId is missing.');
       return;
     }
   
     const newView: AddView = {
       userId: this.userId,
+      userName:this.userName,
       viewContent: this.viewContent.trim()
     };
   
@@ -61,7 +64,7 @@ export class ViewsComponent implements OnInit {
     this.viewService.addView(newView).subscribe(
       response => {
         console.log('View added successfully:', response);
-        // this.loadViews()
+        this.loadViews()
 
         // to update the views array when userposts
         this.views.unshift(response)

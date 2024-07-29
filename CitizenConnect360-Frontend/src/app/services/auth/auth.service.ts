@@ -1,8 +1,9 @@
 import { Injectable } from "@angular/core";
 import { Observable, of, tap } from "rxjs";
-import { LogInResponse, LoginUser, SignUpResponse, User } from "../../models/user";
+import { LogInResponse, LoginUser, Payload, SignUpResponse, User } from "../../models/user";
 import { Router } from "@angular/router";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
+import jwt_decode from 'jwt-decode';
 
 
 @Injectable({
@@ -12,26 +13,23 @@ export class AuthService {
 
 
   private readonly Base_URL = "http://localhost:4000/auth/"
-  retrievedToken = localStorage.getItem('token') as string
+  // retrievedToken = localStorage.getItem('token') as string
+
+  private userName!: string
 
 
-  constructor(private http: HttpClient){}
+  constructor(private http: HttpClient, private router: Router){}
 
 
-   // if the user is logged in
    public isLoggedIn(): boolean {
     const token = localStorage.getItem('token');
     return !!token; 
   }
 
-
-  public showStatus(): boolean {
-    const token = localStorage.getItem('token') as string;
-    if (token) {
-      return true;
-    }
-    return false;
+  public getUserName(): string | undefined {
+    return this.userName;
   }
+
 
   signUpUser(newUser: User): Observable<SignUpResponse> {
     return this.http.post<SignUpResponse>(this.Base_URL + "register", newUser);
@@ -44,29 +42,42 @@ export class AuthService {
       }
     }).pipe(
       tap((response: any) => {
-        console.log('Backend Response:', response)
-        console.log('Token:', response.token)
-        console.log('Payload:', response.payload)
-        
+        const token = response.token
+        if (token) {
+          localStorage.setItem('token', token);
+          try {
+            const tokenParts = token.split('.');
+            if (tokenParts.length === 3) {
+              const payload = tokenParts[1];
+              const decodedPayload = JSON.parse(atob(payload));
+              this.userName = decodedPayload.userName; // Extracted from the payload
+              console.log('Decoded Payload:', decodedPayload);
+            } else {
+              throw new Error('Invalid token structure');
+            }
+          } catch (error) {
+            console.error('Error decoding token:', error);
+          }
+        }
       })
     )
   } 
   
+
+  public showStatus(): boolean {
+    const token = localStorage.getItem('token') as string;
+    if (token) {
+      return true;
+    }
+    return false;
+  }
+
 
   requestPasswordReset(email: string): Observable<any> {
     return this.http.post<any>(`${this.Base_URL}reset-password-request`, { userEmail: email }, {
       headers: {
         "Content-Type": "application/json"
       }
-    });
-  }
-
-
-  getSpecificUser(id: string): Observable<User> {
-    return this.http.get<User>(this.Base_URL + id, {
-      headers: new HttpHeaders({
-        token: this.retrievedToken
-      })
     });
   }
 
@@ -88,21 +99,13 @@ export class AuthService {
   logout(): boolean {
     localStorage.removeItem('token');
     localStorage.removeItem('currentUser');
+    this.router.navigate(['/home']);
     // this.isLoggedIn = false;
     return true;
   }
 
-  // logout() {     
-  //   localStorage.removeItem('userRole');     
-  //   localStorage.removeItem('Payload');     
-  //   this.router.navigate(['/home']);
-  //  }
   
   }
-
-
-
-
 
 
 
