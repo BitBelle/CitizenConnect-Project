@@ -89,19 +89,21 @@ Content-Type: application/json
 {
     "userId": "b9843f89-71c0-49b1-9d71-1f580b7cc260",
     "userName": "Alice",
-    "viewContent": "A night of terror in Zimmerman, Roysambu, and Mirema areas as police shoot to kill."
+    "viewContent": "Peacefull protests"
 }
 
 #### All Views
 GET http://localhost:4000/view
-token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJTdWIiOiJiOTg0M2Y4OS03MWMwLTQ5YjEtOWQ3MS0xZjU4MGI3Y2MyNjAiLCJ1c2VyTmFtZSI6IkpvbmF0aGFuIiwicm9sZU5hbWUiOiJHb3YtT2ZmaWNpYWwiLCJpYXQiOjE3MjE4MDQ5NjgsImV4cCI6MTcyMTg0MDk2OH0.oByPVt9ZTII7zLlXGUjN3-1YqWQ1iH11k4wnPXCpxHs
+token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJTdWIiOiJjZTExMzY2Ny05OWMxLTRkYmItOTVlYS0xOWRjYWIwZWY2NGMiLCJ1c2VyTmFtZSI6IkphbmUgV2FpbmFpbmEiLCJyb2xlTmFtZSI6IkFkbWluIiwiaWF0IjoxNzIyMjQyOTkwLCJleHAiOjE3MjIyNzg5OTB9.8swGVF-tdApzZmT-u-97hccJddbQBxGB61hSN45NfRA
+
 
 #### Single-View
 GET http://localhost:4000/view/bd4359ad-6d1d-4475-b1a0-98c17db4a35d
 
+
 #### Deleting a View
 DELETE http://localhost:4000/view/bd4359ad-6d1d-4475-b1a0-98c17db4a35d
-
+token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJTdWIiOiJjZTExMzY2Ny05OWMxLTRkYmItOTVlYS0xOWRjYWIwZWY2NGMiLCJ1c2VyTmFtZSI6IkphbmUgV2FpbmFpbmEiLCJyb2xlTmFtZSI6IkFkbWluIiwiaWF0IjoxNzIyMjQyOTkwLCJleHAiOjE3MjIyNzg5OTB9.8swGVF-tdApzZmT-u-97hccJddbQBxGB61hSN45NfRA
 
 #### Updating a View
 PATCH http://localhost:4000/view/bd4359ad-6d1d-4475-b1a0-98c17db4a35d
