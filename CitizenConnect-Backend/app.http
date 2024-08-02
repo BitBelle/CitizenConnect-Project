@@ -161,7 +161,7 @@ POST http://localhost:4000/poll
 Content-Type: application/json
 
 {
-    "userId": "b9843f89-71c0-49b1-9d71-1f580b7cc260",
+    
     "pollQuestion": "Do you believe that police departments should be present at protests in an effort to stop them or to ensure that people are allowed to express their views safely",
     "pollOptions": ["Yes", "No", "Not sure"],
     "pollStatus": "Active"
@@ -170,8 +170,7 @@ Content-Type: application/json
 
 ####All Polls
 GET http://localhost:4000/poll
-token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJTdWIiOiJiOTg0M2Y4OS03MWMwLTQ5YjEtOWQ3MS0xZjU4MGI3Y2MyNjAiLCJ1c2VyTmFtZSI6IkpvbmF0aGFuIiwicm9sZU5hbWUiOiJHb3YtT2ZmaWNpYWwiLCJpYXQiOjE3MjE5MDY1MTksImV4cCI6MTcyMTk0MjUxOX0.Z3HrCqkZVSxKVrQkbl1v4gBwpB-jeflIzdKgCT00k-M
-
+token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJTdWIiOiJjZTExMzY2Ny05OWMxLTRkYmItOTVlYS0xOWRjYWIwZWY2NGMiLCJ1c2VyTmFtZSI6IkphbmUgV2FpbmFpbmEiLCJyb2xlTmFtZSI6IkFkbWluIiwiaWF0IjoxNzIyMzI5MzE5LCJleHAiOjE3MjIzNjUzMTl9.hEN5_oVrFKOWeH59AAQc7ytqwW4GxdjrkVBRLYRx7p4
 
 #### Single Poll
 GET http://localhost:4000/poll/29c4b046-ffd8-4217-9d5e-b29fa1d68584
