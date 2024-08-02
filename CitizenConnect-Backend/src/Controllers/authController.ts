@@ -133,11 +133,11 @@ export const loginUser = async (req: Request, res: Response) => {
             return res.status(200).json({
                 message: "Login Successful!",
                 token: token,
-                payload: {
-                    userId: user.userId,
-                    userName: user.userName,
-                    roleName: user.roleName
-                }
+                // payload: {
+                //     userId: user.userId,
+                //     userName: user.userName,
+                //     roleName: user.roleName
+                // }
             });
         }
 
