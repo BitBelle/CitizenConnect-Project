@@ -3,15 +3,22 @@ export interface Polls{
     userId: string
     pollQuestionId:string
     pollQuestion: string
-    pollOption: string
+    pollOptions: PollOption[]
     pollStatus: string
     isDeleted: number
 }
 
+
+export interface PollOption{
+    optionId: string;
+    optionText: string;
+}
+
+
+
 export interface pollRequest{
-    userId: string
     pollQuestion: string
-    pollOption: string
+    pollOptions: string[]
     pollStatus: string
 
 }

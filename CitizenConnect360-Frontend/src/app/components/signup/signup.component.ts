@@ -16,6 +16,8 @@ import { Store } from '@ngrx/store';
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.css']
 })
+
+
 export class SignupComponent implements OnInit {
   signUpForm: FormGroup;
   isTermsModalVisible = false;

@@ -51,7 +51,7 @@ export class AuthService {
               const payload = tokenParts[1];
               const decodedPayload = JSON.parse(atob(payload));
               this.userName = decodedPayload.userName; // Extracted from the payload
-              console.log('Decoded Payload:', decodedPayload);
+              // console.log('Decoded Payload:', decodedPayload);
             } else {
               throw new Error('Invalid token structure');
             }

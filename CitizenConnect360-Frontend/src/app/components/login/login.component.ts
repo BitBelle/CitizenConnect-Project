@@ -43,7 +43,7 @@ export class LoginComponent {
   
 
   onSubmit() {
-    console.log(this.loginForm);
+    // console.log(this.loginForm);
     this.store.dispatch(AuthActions.login({user:this.loginForm.value}))
     
   }
@@ -53,21 +53,6 @@ export class LoginComponent {
     this.showForgotPassword = !this.showForgotPassword;
   }
 
-  // onForgotPasswordSubmit() {
-  //   if (this.forgotPasswordForm.valid) {
-  //     const resetEmail = this.forgotPasswordForm.value.resetEmail;
-  //     this.auth.requestPasswordReset(resetEmail).subscribe(
-  //       response => {
-  //         console.log('Reset link sent successfully');
-  //         // Handle successful response, e.g., show a success message
-  //       },
-  //       error => {
-  //         console.error('Error sending reset link:', error);
-  //         // Handle error response, e.g., show an error message
-  //       }
-  //     );
-  //   }
-  // }
 
   onForgotPasswordSubmit() {
     if (this.forgotPasswordForm.valid) {
