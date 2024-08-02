@@ -18,9 +18,4 @@ export interface Payload{
 
 }
 
-// export interface ExtendedRequest1 extends Request{
-//     userName:string,
-//     userEmail:string,
-//     upassword:string,
-// }
 
