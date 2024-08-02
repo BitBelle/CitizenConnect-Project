@@ -1,8 +1,10 @@
-import Joi from "joi";
+import Joi from 'joi';
 
 export const PollSchema = Joi.object({
-    userId: Joi.string().required(),
     pollQuestion: Joi.string().required(),
-    pollOptions: Joi.array().items(Joi.string().required()).min(1).required(),
-    pollStatus: Joi.string().required()
+    pollOptions: Joi.array().items(Joi.object({
+        // optionId: Joi.string().required(),
+        optionText: Joi.string().required()
+    }).required()).min(1).required(),
+    pollStatus: Joi.string().valid('active', 'inactive').required()
 });
