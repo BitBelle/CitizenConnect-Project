@@ -14,20 +14,10 @@ export const addPoll = async (req: PollRequest, res: Response) => {
             return res.status(400).json({ message: "Poll Input Validation Failed!", error: error.details });
         }
 
-        const { userId, pollQuestion, pollOptions, pollStatus } = req.body;
+        const { pollQuestion, pollOptions, pollStatus } = req.body;
 
-        if (!userId || !pollQuestion || !pollOptions || !pollStatus) {
+        if (!pollQuestion || !pollOptions || !pollStatus) {
             return res.status(400).json({ message: "All fields are required" });
-        }
-
-        console.log('Attempting to insert poll with userId:', userId)
-
-
-        // Check if userId exists
-        const userCheck = await dbInstance.exec('checkUserExists', { userId });
-
-        if (userCheck.recordset.length === 0) {
-            return res.status(400).json({ message: 'Invalid userId' });
         }
 
 
@@ -36,7 +26,6 @@ export const addPoll = async (req: PollRequest, res: Response) => {
         // Add poll question
         await dbInstance.exec('addPollQuestion', {
             pollQuestionId,
-            userId,
             pollQuestion,
             pollStatus
         });
@@ -57,7 +46,7 @@ export const addPoll = async (req: PollRequest, res: Response) => {
         console.error(error)
         return res.status(500).json({ message: "Internal Server Error", error })
     }
-};
+}
 
 
 export const getPollsWithOptions: RequestHandler = async (req, res)=> {
@@ -70,7 +59,7 @@ export const getPollsWithOptions: RequestHandler = async (req, res)=> {
             if (!poll) {
                 poll = {
                     pollQuestionId: row.pollQuestionId,
-                    userId: row.userId,
+                    // userId: row.userId,
                     pollQuestion: row.pollQuestion,
                     pollStatus: row.pollStatus,
                     options: []
