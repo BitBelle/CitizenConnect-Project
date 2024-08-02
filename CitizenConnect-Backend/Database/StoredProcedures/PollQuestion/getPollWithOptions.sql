@@ -18,7 +18,6 @@ AS
 BEGIN
     SELECT
         pq.pollQuestionId,
-        pq.userId,
         pq.pollQuestion,
         pq.pollStatus,
         po.optionId,
